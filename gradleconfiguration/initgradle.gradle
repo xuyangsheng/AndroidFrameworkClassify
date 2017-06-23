@@ -1,0 +1,21 @@
+//定义一个方法
+def initProjectEnvironment() {
+    //打印
+    Properties properties = new Properties()
+    File propertyFile = new File(rootDir.getAbsolutePath() + "/local.properties")
+    properties.load(propertyFile.newDataInputStream())
+
+    //config
+    gradle.ext.minSdkVersion = properties.getProperty('minSdkVersion').toInteger().intValue()
+    gradle.ext.targetSdkVersion = properties.getProperty('targetSdkVersion').toInteger().intValue()
+    gradle.ext.compileSdkVersion = properties.getProperty('compileSdkVersion').toInteger().intValue()
+    gradle.ext.buildToolsVersion = properties.getProperty('buildToolsVersion')
+    gradle.ext.versionName = properties.getProperty('versionName')
+    gradle.ext.versionCode = properties.getProperty('versionCode').toInteger().intValue()
+    gradle.ext.compileSupportversion = properties.getProperty("compileSupportversion")
+
+    println "initialize  Gradle Environment completes..."
+}
+
+//调用
+initProjectEnvironment()

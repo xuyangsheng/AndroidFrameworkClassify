@@ -1,0 +1,4 @@
+//和你的selfgradle文件结构放在哪里有关
+apply from: './gradleconfiguration/initgradle.gradle'
+
+include ':appKong', ':butterknifetest', ':app'
